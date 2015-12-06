@@ -254,7 +254,7 @@ namespace ParticleUniverse
 	{
 		if (mMaxVertexCount == 0 && mMesh)
 		{
-			mVertexData = mMesh->sharedVertexData;
+			mVertexData = mMesh->sharedVertexData[Ogre::VpNormal];
 			if (!mVertexData)
 			{
 				mMeshProcessed = true;
@@ -274,7 +274,7 @@ namespace ParticleUniverse
 	{
 		if (mMaxVertexCount == 0 && mSubMesh)
 		{
-			mVertexData = mSubMesh->vertexData;
+			mVertexData = mSubMesh->vertexData[Ogre::VpNormal];
 			if (!mVertexData)
 			{
 				return;
