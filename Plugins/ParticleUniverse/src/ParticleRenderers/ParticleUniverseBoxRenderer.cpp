@@ -60,7 +60,7 @@ namespace ParticleUniverse
 		mBoxSet = PU_NEW BoxSet(Ogre::Id::generateNewId<ParticleRenderer>(), 
 							technique->getParentSystem()->getDummyObjectMemMgr(),
 							technique->getParentSystem()->_getManager(),
-							0, true);
+							0, true, mQueueId);
 		// World-relative axes
 		mBoxSet->setBoxesInWorldSpace(true);
 
@@ -79,7 +79,6 @@ namespace ParticleUniverse
 		mBoxSet->_createBuffers();
 
 		_setMaterialName(technique->getMaterialName());
-		mBoxSet->setRenderQueueGroup(mQueueId);
 
 		//add renderable
 		this->getParentTechnique()->getParentSystem()->mRenderables.push_back(mBoxSet);

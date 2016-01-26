@@ -39,8 +39,8 @@ namespace ParticleUniverse
 {
 	//-----------------------------------------------------------------------
 	SphereSet::SphereSet(Ogre::IdType id, Ogre::ObjectMemoryManager *objectMemoryManager, Ogre::SceneManager* manager,
-						unsigned int poolSize, bool externalData) :
-		PrimitiveShapeSet(id, objectMemoryManager, manager),
+						uint8 renderQueueId, unsigned int poolSize, bool externalData) :
+		PrimitiveShapeSet(id, objectMemoryManager, manager, renderQueueId),
 		mAutoExtendPool(true),
 		mVertexData(0),
 		mIndexData(0),

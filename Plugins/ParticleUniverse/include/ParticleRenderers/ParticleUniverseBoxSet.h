@@ -160,7 +160,7 @@ namespace ParticleUniverse
 			/** Default constructor.
 			*/
 			BoxSet(Ogre::IdType id, Ogre::ObjectMemoryManager *objectMemoryManager, Ogre::SceneManager *manager,
-					unsigned int poolSize = 20, bool externalData = false);
+					uint8 renderQueueId, unsigned int poolSize = 20, bool externalData = false);
 
 			/** Default destructor.
 			*/

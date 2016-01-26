@@ -74,7 +74,7 @@ namespace ParticleUniverse
 		mBillboardSet = PU_NEW Ogre::v1::BillboardSet(Ogre::Id::generateNewId<ParticleRenderer>(),
 											technique->getParentSystem()->getDummyObjectMemMgr(),
 											technique->getParentSystem()->_getManager(),
-											0, true);
+											0, true, mQueueId);
 		mBillboardSet->setBillboardsInWorldSpace(true);
 
 		setBillboardType(mBillboardType);
@@ -96,7 +96,6 @@ namespace ParticleUniverse
 								_mRendererScale.y * technique->getDefaultHeight(),
 								_mRendererScale.z * technique->getDefaultDepth());
 		_setMaterialName(technique->getMaterialName());
-		mBillboardSet->setRenderQueueGroup(mQueueId);
 		
 		// Set the texture coordinates (if used)
 		if (mTextureCoordsSet)
@@ -257,6 +256,8 @@ namespace ParticleUniverse
 		// Fast check to determine whether there are visual particles
 		if (pool->isEmpty(Particle::PT_VISUAL))
 			return;
+
+		mBillboardSet->_notifyCurrentCamera(camera);
 
 		mBillboardSet->setCullIndividually(mCullIndividual);
 

@@ -60,7 +60,7 @@ namespace ParticleUniverse
 		mSphereSet = PU_NEW SphereSet(Ogre::Id::generateNewId<ParticleRenderer>(), 
 									technique->getParentSystem()->getDummyObjectMemMgr(),
 									technique->getParentSystem()->_getManager(),
-									0, true);
+									0, true, mQueueId);
 		// World-relative axes
 		mSphereSet->setSpheresInWorldSpace(true);
 
@@ -79,7 +79,6 @@ namespace ParticleUniverse
 		mSphereSet->_createBuffers();
 
 		_setMaterialName(technique->getMaterialName());
-		mSphereSet->setRenderQueueGroup(mQueueId);
 
 		//add renderable
 		this->getParentTechnique()->getParentSystem()->mRenderables.push_back(mSphereSet);
