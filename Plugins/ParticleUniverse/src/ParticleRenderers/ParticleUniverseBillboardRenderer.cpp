@@ -374,11 +374,6 @@ namespace ParticleUniverse
 
 		// First cast to BillboardRenderer
 		BillboardRenderer* billboardRenderer = static_cast<BillboardRenderer*>(renderer);
-
-		// Copy attributes in case there is a billboardset (which should be available)
-		if (!billboardRenderer->getBillboardSet())
-			return;
-
 		billboardRenderer->setBillboardType(getBillboardType());
 		billboardRenderer->setBillboardOrigin(getBillboardOrigin());
 		billboardRenderer->setBillboardRotationType(getBillboardRotationType());
