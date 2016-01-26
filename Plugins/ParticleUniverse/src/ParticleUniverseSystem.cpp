@@ -996,6 +996,10 @@ namespace ParticleUniverse
 		bool mAABBUpdate = mParentNode && (mBoundsAutoUpdate || mBoundsUpdateTime > 0.0f);
 		bool merge = mAABBUpdate;
 		AxisAlignedBox worldAABB(position, position);
+
+		// Default AABB to null (otherwise we object will be added to render queue even if there are no particles)
+		worldAABB.setNull();
+
 		for (it = mTechniques.begin(); it != itEnd; ++it)
 		{
 			if (!(*it)->_isMarkedForEmission())
