@@ -817,19 +817,6 @@ namespace ParticleUniverse
 		}
 	}
 	//-----------------------------------------------------------------------
-	void ParticleSystem::setRenderQueueGroup(uint8 queueId)
-	{
-		MovableObject::setRenderQueueGroup(queueId);
-
-		// Set the same group for all renderers in all techniques
-		ParticleTechniqueIterator it;
-		ParticleTechniqueIterator itEnd = mTechniques.end();
-		for (it = mTechniques.begin(); it != itEnd; ++it)
-		{
-			(*it)->setRenderQueueGroup(queueId);
-		}
-	}
-	//-----------------------------------------------------------------------
 	void ParticleSystem::_update(Real timeElapsed)
 	{
 		// Only update if attached to a node

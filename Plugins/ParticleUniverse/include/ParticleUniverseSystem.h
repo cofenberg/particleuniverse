@@ -197,12 +197,6 @@ namespace ParticleUniverse
 			*/
 			inline virtual void _updateRenderQueue(Ogre::RenderQueue* queue, Ogre::Camera* camera, const Ogre::Camera* lodCamera);
 
-			/** Overridden from MovableObject
-			@see
-				MovableObject
-			*/
-			virtual void setRenderQueueGroup(uint8 queueId);
-
 			/** Updates the particle system based on time elapsed.
 			@remarks
 				This is called automatically every frame by OGRE.
