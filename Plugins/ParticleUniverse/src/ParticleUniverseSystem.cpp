@@ -971,11 +971,7 @@ namespace ParticleUniverse
 			(world)AABB of that pooled technique into account.
 		*/
 
-		/** PU is currently updated before the scene graph is updated, but some of the calcs require an up to date world transform.
-			as a result we call _getDerivedPositionUpdated here so all subsequent calls to _getDerivedPosition or _getDerivedOrientation
-			are correct.
-		*/
-		Ogre::Vector3 position = mParentNode->_getDerivedPositionUpdated();
+		Ogre::Vector3 position = mParentNode->_getDerivedPosition();
 
 		ParticleTechniqueIterator it;
 		ParticleTechniqueIterator itEnd = mTechniques.end();
