@@ -61,6 +61,10 @@ namespace ParticleUniverse
 							technique->getParentSystem()->getDummyObjectMemMgr(),
 							technique->getParentSystem()->_getManager(),
 							0, true, mQueueId);
+
+		// By default, make this transparent to query requests
+		mBoxSet->setQueryFlags(0);
+
 		// World-relative axes
 		mBoxSet->setBoxesInWorldSpace(true);
 

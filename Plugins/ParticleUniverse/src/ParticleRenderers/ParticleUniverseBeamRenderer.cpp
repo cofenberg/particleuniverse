@@ -197,6 +197,9 @@ namespace ParticleUniverse
 			setUseVertexColours(mUseVertexColours);
 			mBillboardChain->setOtherTextureCoordRange(0.0f, 1.0f);
 
+			// By default, make this transparent to query requests
+			mBillboardChain->setQueryFlags(0);
+
 			//add renderable
 			this->getParentTechnique()->getParentSystem()->mRenderables.push_back(mBillboardChain);
 

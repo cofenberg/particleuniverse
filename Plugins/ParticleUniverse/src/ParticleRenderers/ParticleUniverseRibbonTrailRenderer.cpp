@@ -254,6 +254,9 @@ namespace ParticleUniverse
 			}
 			mTrail->setUseVertexColours(mUseVertexColours);
 
+			// By default, make this transparent to query requests
+			mTrail->setQueryFlags(0);
+
 			// Create number of VisualData objects
 			String sceneNodeName;
 			std::stringstream ss; 

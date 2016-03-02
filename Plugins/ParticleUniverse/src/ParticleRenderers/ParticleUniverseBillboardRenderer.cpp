@@ -77,6 +77,9 @@ namespace ParticleUniverse
 											0, true, mQueueId);
 		mBillboardSet->setBillboardsInWorldSpace(true);
 
+		// By default, make this transparent to query requests
+		mBillboardSet->setQueryFlags(0);
+
 		setBillboardType(mBillboardType);
 		setUseAccurateFacing(mUseAccurateFacing);
 		setBillboardOrigin(mBillboardOrigin);
