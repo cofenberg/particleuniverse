@@ -163,6 +163,7 @@ namespace ParticleUniverse
 			/** 
 			*/
 			virtual void setRenderQueueGroup(uint8 queueId);
+			virtual void setRenderQueueSubGroup(uint8 queueId);
 
 			/** @copydoc ParticleRenderer::_getSortMode */
 			virtual SortMode _getSortMode(void) const;

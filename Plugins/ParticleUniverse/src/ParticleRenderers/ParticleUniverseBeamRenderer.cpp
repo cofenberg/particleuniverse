@@ -193,6 +193,7 @@ namespace ParticleUniverse
 			mBillboardChain->setMaxChainElements(mMaxChainElements);
 			mBillboardChain->setDatablockOrMaterialName(technique->getMaterialName(), Ogre::ResourceGroupManager::AUTODETECT_RESOURCE_GROUP_NAME);
 			mBillboardChain->setRenderQueueGroup(mQueueId);
+			mBillboardChain->setRenderQueueSubGroup(mSubQueueId);
 			mBillboardChain->setTextureCoordDirection(mTexCoordDirection);
 			setUseVertexColours(mUseVertexColours);
 			mBillboardChain->setOtherTextureCoordRange(0.0f, 1.0f);
@@ -404,6 +405,15 @@ namespace ParticleUniverse
 		if (mBillboardChain)
 		{
 			mBillboardChain->setRenderQueueGroup(queueId);
+		}
+	}
+	//-----------------------------------------------------------------------
+	void BeamRenderer::setRenderQueueSubGroup(uint8 queueId)
+	{
+		mSubQueueId = queueId;
+		if (mBillboardChain)
+		{
+			mBillboardChain->setRenderQueueSubGroup(queueId);
 		}
 	}
 	//-----------------------------------------------------------------------

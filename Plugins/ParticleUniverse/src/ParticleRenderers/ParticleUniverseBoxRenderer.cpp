@@ -61,6 +61,7 @@ namespace ParticleUniverse
 							technique->getParentSystem()->getDummyObjectMemMgr(),
 							technique->getParentSystem()->_getManager(),
 							0, true, mQueueId);
+		mBoxSet->setRenderQueueSubGroup(mSubQueueId);
 
 		// By default, make this transparent to query requests
 		mBoxSet->setQueryFlags(0);
@@ -184,6 +185,15 @@ namespace ParticleUniverse
 		if (mBoxSet)
 		{
 			mBoxSet->setRenderQueueGroup(queueId);
+		}
+	}
+	//-----------------------------------------------------------------------
+	void BoxRenderer::setRenderQueueSubGroup(uint8 queueId)
+	{
+		mSubQueueId = queueId;
+		if (mBoxSet)
+		{
+			mBoxSet->setRenderQueueSubGroup(queueId);
 		}
 	}
 	//-----------------------------------------------------------------------

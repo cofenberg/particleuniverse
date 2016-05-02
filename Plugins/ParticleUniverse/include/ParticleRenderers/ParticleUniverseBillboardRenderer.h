@@ -162,6 +162,7 @@ namespace ParticleUniverse
 			/** 
 			*/
 			virtual void setRenderQueueGroup(uint8 queueId);
+			virtual void setRenderQueueSubGroup(uint8 queueId);
 
 			/** 
 			*/

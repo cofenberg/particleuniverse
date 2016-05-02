@@ -225,6 +225,7 @@ namespace ParticleUniverse
 				entity->setName(mEntityName + StringConverter::toString(j));
 				clonedEntity->setDatablockOrMaterialName(technique->getMaterialName(), Ogre::ResourceGroupManager::AUTODETECT_RESOURCE_GROUP_NAME);
 				clonedEntity->setRenderQueueGroup(mQueueId);
+				clonedEntity->setRenderQueueSubGroup(mSubQueueId);
 				mEntities.push_back(clonedEntity);
 				(*it)->node->attachObject(clonedEntity);
 			}
@@ -396,6 +397,21 @@ namespace ParticleUniverse
 		for (itEntity = mEntities.begin(); itEntity != itEntityEnd; ++itEntity)
 		{
 			(*itEntity)->setRenderQueueGroup(mQueueId);
+		}
+	}
+	//-----------------------------------------------------------------------
+	void EntityRenderer::setRenderQueueSubGroup(uint8 queueId)
+	{
+		mSubQueueId = queueId;
+
+		if (mEntities.empty())
+			return;
+
+		vector<Ogre::v1::Entity*>::const_iterator itEntity = mEntities.begin();
+		vector<Ogre::v1::Entity*>::const_iterator itEntityEnd = mEntities.end();
+		for (itEntity = mEntities.begin(); itEntity != itEntityEnd; ++itEntity)
+		{
+			(*itEntity)->setRenderQueueSubGroup(mSubQueueId);
 		}
 	}
 	//-----------------------------------------------------------------------

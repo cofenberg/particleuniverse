@@ -428,6 +428,7 @@ namespace ParticleUniverse
 			/** Set the renderqueue group in the renderer
 			*/
 			void setRenderQueueGroup(uint8 queueId);
+			void setRenderQueueSubGroup(uint8 queueId);
 
 			/** Perform some initialisation activities.
 			@remarks

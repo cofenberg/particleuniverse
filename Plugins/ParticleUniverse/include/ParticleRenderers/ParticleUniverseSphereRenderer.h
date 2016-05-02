@@ -72,6 +72,9 @@ namespace ParticleUniverse
 			/** @copydoc ParticleRenderer::setRenderQueueGroup */
 			virtual void setRenderQueueGroup(uint8 queueId);
 
+			/** @copydoc ParticleRenderer::setRenderQueueSubGroup */
+			virtual void setRenderQueueSubGroup(uint8 queueId);
+
 			/** @copydoc ParticleRenderer::_getSortMode */
 			virtual SortMode _getSortMode(void) const {return SM_DISTANCE;};
 

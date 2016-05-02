@@ -293,6 +293,7 @@ namespace ParticleUniverse
 				light->setSpotlightOuterAngle(mSpotlightOuterAngle);
 				light->setPowerScale(mPowerScale);
 				light->setRenderQueueGroup(mQueueId);
+				// light->setRenderQueueSubGroup(mSubQueueId);	// Not possible
 				light->setVisible(false);
 				mLights.push_back(light);
 				(*it)->light = light;

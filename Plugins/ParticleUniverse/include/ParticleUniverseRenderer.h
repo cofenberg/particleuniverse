@@ -82,6 +82,10 @@ namespace ParticleUniverse
 	        */
 			uint8 mQueueId;
 
+			/** Defines the rendersubqueue.
+	        */
+			uint8 mSubQueueId;
+
 			/** Determines whether renderer is initialised.
 	        */
 			bool mRendererInitialised;
@@ -145,6 +149,7 @@ namespace ParticleUniverse
 
 			// Default values
 			static const uint8 DEFAULT_RENDER_QUEUE_GROUP;
+			static const uint8 DEFAULT_RENDER_QUEUE_SUB_GROUP;
 			static const bool DEFAULT_SORTED;
 			static const uchar DEFAULT_TEXTURECOORDS_ROWS;
 			static const uchar DEFAULT_TEXTURECOORDS_COLUMNS;
@@ -264,9 +269,11 @@ namespace ParticleUniverse
 
 			/** Sets renderqueue group */
 			virtual void setRenderQueueGroup(uint8 queueId);
+			virtual void setRenderQueueSubGroup(uint8 queueId);
 
 			/** Get renderqueue group */
 			virtual uint8 getRenderQueueGroup(void) const;
+			virtual uint8 getRenderQueueSubGroup(void) const;
 			
 			/** Gets the particles sort mode */
 			virtual SortMode _getSortMode(void) const = 0;

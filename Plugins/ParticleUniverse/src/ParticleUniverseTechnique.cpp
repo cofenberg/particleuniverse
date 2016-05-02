@@ -1154,6 +1154,14 @@ namespace ParticleUniverse
 		}
 	}
 	//-----------------------------------------------------------------------
+	void ParticleTechnique::setRenderQueueSubGroup(uint8 queueId)
+	{
+		if (mRenderer)
+		{
+			mRenderer->setRenderQueueSubGroup(queueId);
+		}
+	}
+	//-----------------------------------------------------------------------
 	void ParticleTechnique::_unprepare(void)
 	{
 		_unprepareVisualParticles();

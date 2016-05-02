@@ -244,6 +244,7 @@ namespace ParticleUniverse
 			mTrail->setMaxChainElements(mMaxChainElements);
 			mTrail->setDatablockOrMaterialName(technique->getMaterialName(), Ogre::ResourceGroupManager::AUTODETECT_RESOURCE_GROUP_NAME);
 			mTrail->setRenderQueueGroup(mQueueId);
+			mTrail->setRenderQueueSubGroup(mSubQueueId);
 			if (mSetLength)
 			{
 				mTrail->setTrailLength(_mRendererScale.y * mTrailLength);
@@ -387,6 +388,15 @@ namespace ParticleUniverse
 		if (mTrail)
 		{
 			mTrail->setRenderQueueGroup(queueId);
+		}
+	}
+	//-----------------------------------------------------------------------
+	void RibbonTrailRenderer::setRenderQueueSubGroup(uint8 queueId)
+	{
+		mSubQueueId = queueId;
+		if (mTrail)
+		{
+			mTrail->setRenderQueueSubGroup(queueId);
 		}
 	}
 	//-----------------------------------------------------------------------

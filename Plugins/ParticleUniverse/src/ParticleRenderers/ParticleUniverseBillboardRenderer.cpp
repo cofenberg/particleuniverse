@@ -75,6 +75,7 @@ namespace ParticleUniverse
 											technique->getParentSystem()->getDummyObjectMemMgr(),
 											technique->getParentSystem()->_getManager(),
 											0, true, mQueueId);
+		mBillboardSet->setRenderQueueSubGroup(mSubQueueId);
 		mBillboardSet->setBillboardsInWorldSpace(true);
 
 		// By default, make this transparent to query requests
@@ -357,6 +358,15 @@ namespace ParticleUniverse
 		if (mBillboardSet)
 		{
 			mBillboardSet->setRenderQueueGroup(mQueueId);
+		}
+	}
+	//-----------------------------------------------------------------------
+	void BillboardRenderer::setRenderQueueSubGroup(uint8 queueId)
+	{
+		mSubQueueId = queueId;
+		if (mBillboardSet)
+		{
+			mBillboardSet->setRenderQueueSubGroup(mSubQueueId);
 		}
 	}
 	//-----------------------------------------------------------------------

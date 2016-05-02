@@ -37,6 +37,7 @@ namespace ParticleUniverse
 {
 	// Constants
 	const uint8 ParticleRenderer::DEFAULT_RENDER_QUEUE_GROUP = 1;
+	const uint8 ParticleRenderer::DEFAULT_RENDER_QUEUE_SUB_GROUP = 1;
 	const bool ParticleRenderer::DEFAULT_SORTED = false;
 	const uchar ParticleRenderer::DEFAULT_TEXTURECOORDS_ROWS = 1;
 	const uchar ParticleRenderer::DEFAULT_TEXTURECOORDS_COLUMNS = 1;
@@ -57,6 +58,7 @@ namespace ParticleUniverse
 		mDepth(100),
 		mSorted(DEFAULT_SORTED),
 		mQueueId(DEFAULT_RENDER_QUEUE_GROUP),
+		mSubQueueId(DEFAULT_RENDER_QUEUE_SUB_GROUP),
 		mRendererInitialised(false),
 		_mRendererScale(Vector3::UNIT_SCALE),
 		mTextureCoordsRows(DEFAULT_TEXTURECOORDS_ROWS),
@@ -135,9 +137,19 @@ namespace ParticleUniverse
 		return mQueueId;
 	}
 	//-----------------------------------------------------------------------
+	uint8 ParticleRenderer::getRenderQueueSubGroup(void) const
+	{
+		return mSubQueueId;
+	}
+	//-----------------------------------------------------------------------
 	void ParticleRenderer::setRenderQueueGroup(uint8 queueId)
 	{
 		mQueueId = queueId;
+	}
+	//-----------------------------------------------------------------------
+	void ParticleRenderer::setRenderQueueSubGroup(uint8 queueId)
+	{
+		mSubQueueId = queueId;
 	}
 	//-----------------------------------------------------------------------
 	const bool ParticleRenderer::isSorted(void) const
@@ -433,6 +445,7 @@ namespace ParticleUniverse
 	void ParticleRenderer::copyParentAttributesTo (ParticleRenderer* renderer)
 	{
 		renderer->setRenderQueueGroup(mQueueId);
+		renderer->setRenderQueueSubGroup(mSubQueueId);
 		renderer->setSorted(mSorted);
 		renderer->mTextureCoordsRows = mTextureCoordsRows;
 		renderer->mTextureCoordsColumns = mTextureCoordsColumns;
