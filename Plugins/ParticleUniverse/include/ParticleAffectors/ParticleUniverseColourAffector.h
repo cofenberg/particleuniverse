@@ -24,8 +24,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #ifndef __PU_COLOUR_AFFECTOR_H__
 #define __PU_COLOUR_AFFECTOR_H__
 
-#include "ParticleUniversePrerequisites.h"
-#include "ParticleUniverseAffector.h"
+#include "../ParticleUniverseAffector.h"
 
 namespace ParticleUniverse
 {
