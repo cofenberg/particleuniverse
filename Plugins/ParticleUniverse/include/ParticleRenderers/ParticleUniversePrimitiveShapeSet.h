@@ -141,11 +141,6 @@ namespace ParticleUniverse
 			/** Rotate Texture
 		    */
 			virtual void rotateTexture(Real speed);
-
-			/** @see MovableObject
-		    */
-			virtual void visitRenderables(Ogre::Renderable::Visitor* visitor,
-				bool debugRenderables = false) {/* No implementation */};
 	};
 
 }

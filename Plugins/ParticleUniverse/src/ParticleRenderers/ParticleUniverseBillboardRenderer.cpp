@@ -378,6 +378,24 @@ namespace ParticleUniverse
 	void BillboardRenderer::setVisible(bool visible)
 	{
 		ParticleRenderer::setVisible(visible);
+		if (mBillboardSet)
+		{
+			// In OGRE 2.1>= we can't just call "mBillboardSet->setVisible(visible);" and be done with it
+			// -> The renderer doesn't use "Ogre::MovableObject::setVisible()" for "Ogre::MovableObject::mRenderables"
+			Ogre::RenderableArray& renderables = this->getParentTechnique()->getParentSystem()->mRenderables;
+			Ogre::RenderableArray::iterator iterator = std::find(renderables.begin(), renderables.end(), mBillboardSet);
+			if (visible)
+			{
+				if (iterator == renderables.end())
+				{
+					renderables.push_back(mBillboardSet);
+				}
+			}
+			else if (iterator != renderables.end())
+			{
+				renderables.erase(iterator);
+			}
+		}
 	}
 	//-----------------------------------------------------------------------
 	void BillboardRenderer::copyAttributesTo (ParticleRenderer* renderer)
